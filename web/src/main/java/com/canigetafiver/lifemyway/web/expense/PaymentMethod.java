@@ -12,5 +12,6 @@ public enum PaymentMethod {
     GOOGLE_PAY,
     SAMSUNG_PAY,
     GIFT_CARD,
-    ACH
+    ACH,
+    OTHER
 }
