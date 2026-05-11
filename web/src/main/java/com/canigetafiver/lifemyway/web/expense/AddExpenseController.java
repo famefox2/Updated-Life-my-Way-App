@@ -63,7 +63,7 @@ public class AddExpenseController {
             
             try {
                 if (amountTextField.getText().isEmpty() || categoryChoiceBox.getValue() == null || paymentMethodChoiceBox.getValue() == null) {
-                    newExpense = new Expense.ExpenseBuilder(Double.parseDouble(amountTextField.getText()), Category.DINING, PaymentMethod.APPLE_PAY)
+                    newExpense = new Expense.ExpenseBuilder(Double.parseDouble(amountTextField.getText()), Category.OTHER, PaymentMethod.OTHER)
                     .description(descriptionTextArea.getText())
                     .date(datePicker.getValue())
                     .vendor(vendorTextField.getText())
@@ -82,21 +82,7 @@ public class AddExpenseController {
                 System.out.println("Error creating expense: " + e.getMessage());
                 return; // Exit the method if there was an error
             }
-        if (amountTextField.getText().isEmpty() || categoryChoiceBox.getValue() == null || paymentMethodChoiceBox.getValue() == null) {
-             newExpense = new Expense.ExpenseBuilder(Double.parseDouble(amountTextField.getText()), Category.DINING, PaymentMethod.APPLE_PAY)
-                .description(descriptionTextArea.getText())
-                .date(datePicker.getValue())
-                .vendor(vendorTextField.getText())
-                .build();
-        }
-    else{
-
-         newExpense = new Expense.ExpenseBuilder(Double.parseDouble(amountTextField.getText()), categoryChoiceBox.getValue(), paymentMethodChoiceBox.getValue())
-                .description(descriptionTextArea.getText())
-                .date(datePicker.getValue())
-                .vendor(vendorTextField.getText())
-                .build();
-    }
+    
     //TODO: Add the new expense to the list of expenses in the primary controller
         System.out.println("New Expense: " + newExpense.getAmount() + ", " + newExpense.getCategory() + ", " + newExpense.getPaymentMethod() + ", " + newExpense.getDescription() + ", " + newExpense.getVendor() + ", " + newExpense.getDate());
     //Way to return expense
